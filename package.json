@@ -1,5 +1,5 @@
 {
-    "name": "posthog-plugin-geoip",
+    "name": "posthog-plugin-geoip-refrag-version",
     "version": "1.1.0",
     "description": "Enrich PostHog events and persons with IP location data",
     "keywords": [
@@ -10,11 +10,11 @@
         "geolite"
     ],
     "main": "dist/index.js",
-    "repository": "github:PostHog/posthog-plugin-geoip",
+    "repository": "github:refrag/posthog-plugin-geoip",
     "bugs": {
-        "url": "https://github.com/PostHog/posthog-plugin-geoip/issues"
+        "url": "https://github.com/refrag/posthog-plugin-geoip/issues"
     },
-    "homepage": "https://github.com/PostHog/posthog-plugin-geoip#readme",
+    "homepage": "https://github.com/refrag/posthog-plugin-geoip#readme",
     "author": "PostHog <hey@posthog.com>",
     "scripts": {
         "test": "jest .",
