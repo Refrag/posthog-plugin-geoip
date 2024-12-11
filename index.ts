@@ -39,7 +39,7 @@ const plugin: Plugin = {
         let lib = event.properties?.$lib
         if (lib == 'posthog-go') {
             // Skip geoip for posthog-go always
-            return;
+            return event;
         }
         let ip = event.properties?.$ip || event.ip
         if (ip && !event.properties?.$geoip_disable) {
