@@ -36,6 +36,11 @@ const plugin: Plugin = {
         if (!geoip) {
             throw new Error('This PostHog version does not have GeoIP capabilities! Upgrade to PostHog 1.24.0 or later')
         }
+        let lib = event.properties?.$lib
+        if (lib == 'posthog-go') {
+            // Skip geoip for posthog-go always
+            return;
+        }
         let ip = event.properties?.$ip || event.ip
         if (ip && !event.properties?.$geoip_disable) {
             ip = String(ip)
@@ -50,7 +55,7 @@ const plugin: Plugin = {
                     if (typeof response.city.confidence === 'number') {
                         // NOTE: Confidence is part of the enterprise maxmind DB, not typically installed
                         location['city_confidence'] = response.city.confidence
-                    }   
+                    }
                 }
                 if (response.country) {
                     location['country_name'] = response.country.names?.en

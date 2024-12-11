@@ -139,3 +139,9 @@ test('event is skipped using $geoip_disable', async () => {
     const processedEvent = await processEvent(JSON.parse(JSON.stringify(testEvent)), await resetMetaWithMmdb())
     expect(testEvent).toEqual(processedEvent)
 })
+
+test('event is skipped using $lib posthog-go', async () => {
+    const testEvent = { ...createPageview(), ip: '89.160.20.129', properties: { $lib: 'posthog-go' } }
+    const processedEvent = await processEvent(JSON.parse(JSON.stringify(testEvent)), await resetMetaWithMmdb())
+    expect(testEvent).toEqual(processedEvent)
+})
